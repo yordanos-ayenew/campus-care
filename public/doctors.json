@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Helen Abebe",
+    "department": "Cardiology",
+    "specialization": "Cardiologist",
+    "experience": 8,
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "Dr. Abel Kebede",
+    "department": "Dermatology",
+    "specialization": "Dermatologist",
+    "experience": 5,
+    "available": true
+  },
+  {
+    "id": 3,
+    "name": "Dr. Selamawit Abera",
+    "department": "General Medicine",
+    "specialization": "General Physician",
+    "experience": 7,
+    "available": true
+  },
+  {
+    "id": 4,
+    "name": "Dr. Dagim Mekonnen",
+    "department": "Pediatrics",
+    "specialization": "Pediatrician",
+    "experience": 10,
+    "available": false
+  }
+]
