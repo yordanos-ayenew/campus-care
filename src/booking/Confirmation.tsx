@@ -2,12 +2,12 @@ import { Link, useParams } from "react-router-dom";
 import { useAppointmentStore } from "../appointments/appointmentStore";
 
 function Confirmation(){
-    const {doctorId} = useParams();
+    const {appointmentId} = useParams();
     const appointments = useAppointmentStore(
         (state)=> state.appointments
     );
     const appointment = appointments.find(
-        (appointment)=>appointment.doctorId===doctorId
+        (appointment)=>appointment.id===appointmentId
     );
     if (!appointment){
         return(
@@ -27,7 +27,7 @@ function Confirmation(){
             <p>Date: {appointment.date}</p>
             <p>Time: {appointment.time}</p>
             <p>Reason: {appointment.reason}</p>
-            <Link to="/doctors">Back to Doctors</Link>
+            <Link to="/appointments">View My Appointments</Link>
         </main>
     );
 }

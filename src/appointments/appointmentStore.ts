@@ -9,6 +9,7 @@ export type Appointment = BookingForm & {
 type AppointmentStore = {
   appointments: Appointment[];
   addAppointment: (appointment: Appointment) => void;
+  removeAppointment: (id:string)=> void;
 };
 export const useAppointmentStore = create<AppointmentStore>()(
   persist((set) => ({
@@ -17,6 +18,12 @@ export const useAppointmentStore = create<AppointmentStore>()(
         set((state) => ({
           appointments: [...state.appointments, appointment],
         })),
+        removeAppointment: (id) =>
+        set((state) => ({
+          appointments: state.appointments.filter(
+            (appointment) => appointment.id !== id
+          )
+        }))
     }),
     {
       name: "campus-care-appointments",

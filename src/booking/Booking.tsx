@@ -38,7 +38,7 @@ function Booking(){
             ...form
         };
         addAppointment(appointment);
-        navigate(`/booking/${doctorId}/confirmation`);
+        navigate(`/booking/confirmation/${appointment.id}`);
     }
     return(
         <main>
