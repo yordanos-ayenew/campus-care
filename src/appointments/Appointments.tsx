@@ -2,8 +2,10 @@ import { useAppointmentStore } from "./appointmentStore";
 import useFetch from "../hooks/useFetch";
 import { getDoctors } from "../api/doctorsApi";
 import type { Doctor } from "../doctors/types";
+import { useAuth } from "../auth/AuthContext";
 
 function Appointments() {
+    const {logout} = useAuth();
     const appointments = useAppointmentStore(
         (state) => state.appointments
     );
@@ -38,6 +40,9 @@ function Appointments() {
     return (
         <main>
             <h1>My Appointments</h1>
+            <button type="button" onClick={logout}>
+                Sign Out
+            </button>
             {appointments.map((appointment) => {
                 const doctor = doctors?.find(
                     (doctor) => doctor.id.toString() === appointment.doctorId

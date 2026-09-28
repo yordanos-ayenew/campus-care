@@ -6,6 +6,8 @@ import DoctorDetail from "./doctors/DoctorDetail";
 import Booking from "./booking/Booking";
 import Confirmation from "./booking/Confirmation";
 import Appointments from "./appointments/Appointments";
+import Login from "./auth/Login";
+import ProtectedRoute from "./auth/ProtectedRoute";
 import NotFound from "./NotFound";
 
 function App() {
@@ -18,7 +20,10 @@ function App() {
           <Route path="doctors/:id" element={<DoctorDetail />} />
           <Route path="booking/:doctorId" element={<Booking />} />
           <Route path="booking/confirmation/:appointmentId" element={<Confirmation />}/>
-          <Route path="appointments" element={<Appointments/>}/>
+          <Route path="login" element={<Login />} />
+          <Route element={<ProtectedRoute/>}>
+              <Route path="appointments" element={<Appointments/>}/>
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
