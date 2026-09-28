@@ -1,9 +1,11 @@
 import { Link, useParams } from "react-router-dom";
-import { useAppointments } from "../appointments/AppointmentContext";
+import { useAppointmentStore } from "../appointments/appointmentStore";
 
 function Confirmation(){
     const {doctorId} = useParams();
-    const {appointments} = useAppointments();
+    const appointments = useAppointmentStore(
+        (state)=> state.appointments
+    );
     const appointment = appointments.find(
         (appointment)=>appointment.doctorId===doctorId
     );

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { validate, type ValidationErrors } from "./validate";
-import { useAppointments } from "../appointments/AppointmentContext";
-
+import { useAppointmentStore } from "../appointments/appointmentStore";
 function Booking(){
     const navigate = useNavigate();
     const {doctorId} = useParams();
-    const {addAppointment} = useAppointments();
+    const addAppointment = useAppointmentStore(
+        (state) => state.addAppointment
+    );
     const [form, setForm] = useState({
         name: "", phone: "", date: "", time: "", reason: ""
     });
