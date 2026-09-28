@@ -1,4 +1,4 @@
-type BookingForm = {
+export type BookingForm = {
     name: string;
     phone: string;
     date: string;

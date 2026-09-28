@@ -1,9 +1,13 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useAppointments } from "../appointments/AppointmentContext";
 
 function Confirmation(){
-    const location = useLocation();
-    const booking = location.state;
-    if (!booking){
+    const {doctorId} = useParams();
+    const {appointments} = useAppointments();
+    const appointment = appointments.find(
+        (appointment)=>appointment.doctorId===doctorId
+    );
+    if (!appointment){
         return(
             <main>
                 <h1>No Booking Found</h1>
@@ -16,11 +20,11 @@ function Confirmation(){
         <main>
             <h1>Appointment Confirmed</h1>
             <p>Your appointment has been successfully booked.</p>
-            <p>Student: {booking.name}</p>
-            <p>Phone: {booking.phone}</p>
-            <p>Date: {booking.date}</p>
-            <p>Time: {booking.time}</p>
-            <p>Reason: {booking.reason}</p>
+            <p>Student: {appointment.name}</p>
+            <p>Phone: {appointment.phone}</p>
+            <p>Date: {appointment.date}</p>
+            <p>Time: {appointment.time}</p>
+            <p>Reason: {appointment.reason}</p>
             <Link to="/doctors">Back to Doctors</Link>
         </main>
     );

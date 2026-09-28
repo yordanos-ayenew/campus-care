@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { validate, type ValidationErrors } from "./validate";
+import { useAppointments } from "../appointments/AppointmentContext";
 
 function Booking(){
     const navigate = useNavigate();
     const {doctorId} = useParams();
+    const {addAppointment} = useAppointments();
     const [form, setForm] = useState({
         name: "", phone: "", date: "", time: "", reason: ""
     });
@@ -29,11 +31,13 @@ function Booking(){
         if(Object.keys(ValidationErrors).length>0){
             return;
         }
-        navigate(`/booking/${doctorId}/confirmation`, {
-            state:{
-                doctorId, ...form
-            }
-        });
+        const appointment = {
+            id: crypto.randomUUID(),
+            doctorId: doctorId!,
+            ...form
+        };
+        addAppointment(appointment);
+        navigate(`/booking/${doctorId}/confirmation`);
     }
     return(
         <main>
