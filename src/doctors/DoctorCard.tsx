@@ -6,13 +6,14 @@ type DoctorCardProps = {
 
 function DoctorCard({doctor}: DoctorCardProps){
     return(
-        <article>
+        <article className="doctor-card">
             <h2>{doctor.name}</h2>
             <p>{doctor.specialization}</p>
             <p>Department: {doctor.department}</p>
             <p>Experience: {doctor.experience} years</p>
             <p>Status: {doctor.available ? "Available" : "Not Available"}</p>
-            <Link to={`/doctors/${doctor.id}`}>View Details</Link>
+            <Link className="doctor-details-link" to={`/doctors/${doctor.id}`}>
+                View Details</Link>
         </article>
     );
 }

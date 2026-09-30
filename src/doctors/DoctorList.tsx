@@ -7,7 +7,7 @@ type DoctorListProps = {
 
 function DoctorList({doctors}: DoctorListProps){
     return(
-        <section>
+        <section className="doctor-list">
             {doctors.map((doctor)=>(
                 <DoctorCard key={doctor.id} doctor={doctor}/>
             ))}

@@ -11,23 +11,33 @@ function Confirmation(){
     );
     if (!appointment){
         return(
-            <main>
-                <h1>No Booking Found</h1>
-                <p>There is no appointment information to display.</p>
-                <Link to="/doctors">Back to Doctors</Link>
+            <main className="confirmation-page">
+                <article className="confirmation-card">
+                    <h1>No Booking Found</h1>
+                    <p>There is no appointment information to display.</p>
+                    <Link className="confirmation-link" to="/doctors">Back to Doctors</Link>
+                </article>
             </main>
         );
     }
     return(
-        <main>
-            <h1>Appointment Confirmed</h1>
-            <p>Your appointment has been successfully booked.</p>
-            <p>Student: {appointment.name}</p>
-            <p>Phone: {appointment.phone}</p>
-            <p>Date: {appointment.date}</p>
-            <p>Time: {appointment.time}</p>
-            <p>Reason: {appointment.reason}</p>
-            <Link to="/appointments">View My Appointments</Link>
+        <main className="confirmation-page">
+            <article className="confirmation-card">
+                <h1>Appointment Confirmed</h1>
+                <p className="confirmation-message">
+                    Your appointment has been successfully booked.
+                </p>
+                <div className="appointment-details">
+                    <p><strong>Student:</strong> {appointment.name}</p>
+                    <p><strong>Phone:</strong> {appointment.phone}</p>
+                    <p><strong>Date:</strong> {appointment.date}</p>
+                    <p><strong>Time:</strong> {appointment.time}</p>
+                    <p><strong>Reason:</strong> {appointment.reason}</p>
+                </div>
+                <Link className="confirmation-link" to="/appointments">
+                    View My Appointments
+                </Link>
+            </article>
         </main>
     );
 }

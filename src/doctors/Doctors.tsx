@@ -27,7 +27,7 @@ function Doctors(){
        );
 
     return (
-        <main>
+        <main className="doctors-page">
             <h1>Doctors</h1>
             <DepartmnetFilter
                 departments={departments}

@@ -41,64 +41,120 @@ function Booking(){
         navigate(`/booking/confirmation/${appointment.id}`);
     }
     return(
-        <main>
-            <h1>Book an Appointment</h1>
-            <p>Doctor ID: {doctorId}</p>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Student Name</label>
-                    <input
-                       id="name"
-                       name="name"
-                       value={form.name}
-                       onChange={handleChange}
-                    />
-                    {errors.name && <p>{errors.name}</p>}
-                </div>
-                <div>
-                    <label htmlFor="phone">Phone</label>
-                    <input
-                       id="phone"
-                       name="phone"
-                       value={form.phone}
-                       onChange={handleChange}
-                    />
-                    {errors.phone && <p>{errors.phone}</p>}
-                </div>
-                <div>
-                    <label htmlFor="date">Date</label>
-                    <input
-                       id="date"
-                       name="date"
-                       type="date"
-                       value={form.date}
-                       onChange={handleChange}
-                    />
-                    {errors.date && <p>{errors.date}</p>}
-                </div>
-                <div>
-                    <label htmlFor="time">Time</label>
-                    <input
-                       id="time"
-                       name="time"
-                       type="time"
-                       value={form.time}
-                       onChange={handleChange}
-                    />
-                    {errors.time && <p>{errors.time}</p>}
-                </div>
-                <div>
-                    <label htmlFor="reason">Reason</label>
-                    <textarea
-                       id="reason"
-                       name="reason"
-                       value={form.reason}
-                       onChange={handleChange}
-                    />
-                </div>
-                {errors.reason && <p>{errors.reason}</p>}
-                <button type="submit">Book Appointment</button>
-            </form>
+        <main className="booking-page">
+            <div className="booking-card">
+                <h1>Book an Appointment</h1>
+
+                <p className="doctor-id">
+                    Doctor ID: {doctorId}
+                </p>
+
+                <form
+                    className="booking-form"
+                    onSubmit={handleSubmit}
+                >
+                    <div className="form-field">
+                        <label htmlFor="name">
+                            Student Name
+                        </label>
+
+                        <input
+                            id="name"
+                            name="name"
+                            value={form.name}
+                            onChange={handleChange}
+                        />
+
+                        {errors.name && (
+                            <p className="form-error">
+                                {errors.name}
+                            </p>
+                        )}
+                    </div>
+
+                    <div className="form-field">
+                        <label htmlFor="phone">
+                            Phone
+                        </label>
+
+                        <input
+                            id="phone"
+                            name="phone"
+                            value={form.phone}
+                            onChange={handleChange}
+                        />
+
+                        {errors.phone && (
+                            <p className="form-error">
+                                {errors.phone}
+                            </p>
+                        )}
+                    </div>
+
+                    <div className="form-field">
+                        <label htmlFor="date">
+                            Date
+                        </label>
+
+                        <input
+                            id="date"
+                            name="date"
+                            type="date"
+                            value={form.date}
+                            onChange={handleChange}
+                        />
+
+                        {errors.date && (
+                            <p className="form-error">
+                                {errors.date}
+                            </p>
+                        )}
+                    </div>
+
+                    <div className="form-field">
+                        <label htmlFor="time">
+                            Time
+                        </label>
+
+                        <input
+                            id="time"
+                            name="time"
+                            type="time"
+                            value={form.time}
+                            onChange={handleChange}
+                        />
+
+                        {errors.time && (
+                            <p className="form-error">
+                                {errors.time}
+                            </p>
+                        )}
+                    </div>
+
+                    <div className="form-field">
+                        <label htmlFor="reason">
+                            Reason
+                        </label>
+
+                        <textarea
+                            id="reason"
+                            name="reason"
+                            value={form.reason}
+                            onChange={handleChange}
+                        />
+
+                        {errors.reason && (
+                            <p className="form-error">
+                                {errors.reason}
+                            </p>
+                        )}
+                    </div>
+
+                    <button type="submit">
+                        Book Appointment
+                    </button>
+                </form>
+            </div>
         </main>
     )
 }

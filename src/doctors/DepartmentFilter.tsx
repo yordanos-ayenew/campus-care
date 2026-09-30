@@ -10,7 +10,7 @@ function DepartmnetFilter({
     onDepartmentChange
 }:DepartmentFilterProps){
     return(
-        <div>
+        <div className="department-filter">
             {departments.map((department)=>(
                 <button key={department} 
                     className={department===selectedDepartment?"selected" : ""}

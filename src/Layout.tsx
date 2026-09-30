@@ -3,17 +3,19 @@ import { Link, Outlet } from "react-router-dom";
 function Layout(){
     return(
         <>
-            <header>
-                <h1>CampusCare</h1>
-                <nav>
-                    <Link to="/">Home</Link>
-                    &nbsp;&nbsp;&nbsp;
-                    <Link to="/doctors">Doctors</Link>
-                    &nbsp;&nbsp;&nbsp;
-                    <Link to="/appointments">Appointments</Link>
-                </nav>
+            <header className="site-header">
+                <div className="header-content">
+                    <h1 className="logo">CampusCare</h1>
+                    <nav className="main-nav">
+                        <Link to="/">Home</Link>
+                        <Link to="/doctors">Doctors</Link>
+                        <Link to="/appointments">Appointments</Link>
+                    </nav>
+                </div>
             </header>
-            <Outlet/>
+            <main className="page-content">
+                <Outlet />
+            </main>
         </>
     )
 }
